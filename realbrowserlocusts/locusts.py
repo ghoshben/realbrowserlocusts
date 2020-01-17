@@ -41,7 +41,7 @@ class ChromeLocust(RealBrowserLocust):
             _LOGGER.info('Using proxy: ' + self.proxy_server)
             options.add_argument('proxy-server={}'.format(self.proxy_server))
         self.client = RealBrowserClient(
-            webdriver.Chrome(chrome_options=options),
+            webdriver.Chrome(executable_path='I:/bin/chromedriver',chrome_options=options),
             self.timeout,
             self.screen_width,
             self.screen_height
@@ -63,7 +63,7 @@ class HeadlessChromeLocust(RealBrowserLocust):
         if self.proxy_server:
             _LOGGER.info('Using proxy: ' + self.proxy_server)
             options.add_argument('proxy-server={}'.format(self.proxy_server))
-        driver = webdriver.Chrome(chrome_options=options)
+        driver = webdriver.Chrome(executable_path='I:/bin/chromedriver',chrome_options=options)
         _LOGGER.info('Actually trying to run headless Chrome')
         self.client = RealBrowserClient(
             driver,
